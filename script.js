@@ -9,7 +9,7 @@ body.style.background = "linear-gradient(to right, "
 + ", " 
 + color2.value 
 + ")";
-
+css.textContent = body.style.background + ";";
 function getRandomColor() {
 	var letters = '0123456789ABCDEF';
 	var color = '#';
@@ -30,18 +30,23 @@ function setGradient() {
 	css.textContent = body.style.background + ";";
 }
 function setRandomBackground(){
+	var randomColor1 = getRandomColor();
+	var randomColor2 = getRandomColor();
+
 	body.style.background = 
 	"linear-gradient(to right, " 
-	+ getRandomColor() 
+	+ randomColor1
 	+ ", " 
-	+ getRandomColor() 
+	+ randomColor2 
 	+ ")";
 
 	css.textContent = body.style.background + ";";
+	color1.value = randomColor1;
+	color2.value = randomColor2;
 }
 
 color1.addEventListener("input", setGradient);
 
 color2.addEventListener("input", setGradient);
 
-button.addEventListener("onClick", setRandomBackground);
+button.addEventListener("click", setRandomBackground);
